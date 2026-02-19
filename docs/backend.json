@@ -1,0 +1,687 @@
+{
+  "entities": {
+    "User": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User",
+      "type": "object",
+      "description": "Represents an authenticated user of the platform, categorized by role for access control.",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Unique identifier for the User entity."
+        },
+        "role": {
+          "type": "string",
+          "description": "The role of the user, determining their access level. (Enum: \"admin\", \"collaborateur\", \"client\")"
+        },
+        "nom": {
+          "type": "string",
+          "description": "The user's last name."
+        },
+        "prenom": {
+          "type": "string",
+          "description": "The user's first name."
+        },
+        "email": {
+          "type": "string",
+          "description": "The user's email address.",
+          "format": "email"
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "URL to the user's profile picture.",
+          "format": "uri"
+        },
+        "telephone": {
+          "type": "string",
+          "description": "The user's contact phone number."
+        },
+        "adresse": {
+          "type": "string",
+          "description": "The user's physical address."
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when the user account was created.",
+          "format": "date-time"
+        },
+        "active": {
+          "type": "boolean",
+          "description": "Indicates if the user account is active."
+        }
+      },
+      "required": [
+        "userId",
+        "role",
+        "nom",
+        "prenom",
+        "email",
+        "createdAt",
+        "active"
+      ]
+    },
+    "Product": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Product",
+      "type": "object",
+      "description": "Represents a product available for sale in the pharmacy's catalog.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Product entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the product."
+        },
+        "slug": {
+          "type": "string",
+          "description": "A URL-friendly identifier for the product, used for clean URLs."
+        },
+        "description": {
+          "type": "string",
+          "description": "A detailed description of the product."
+        },
+        "shortDescription": {
+          "type": "string",
+          "description": "A brief summary or short description of the product."
+        },
+        "price": {
+          "type": "number",
+          "description": "The selling price of the product."
+        },
+        "stock": {
+          "type": "number",
+          "description": "The current quantity of the product in stock."
+        },
+        "category": {
+          "type": "string",
+          "description": "The category the product belongs to (e.g., Parapharmacie, Compléments, Matériel médical)."
+        },
+        "images": {
+          "type": "array",
+          "description": "An array of URLs for product images.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when the product was first added.",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Timestamp of the last update to the product details.",
+          "format": "date-time"
+        },
+        "createdBy": {
+          "type": "string",
+          "description": "Reference to the User who created this product. (Relationship: User 1:N Product)"
+        },
+        "isActive": {
+          "type": "boolean",
+          "description": "Indicates if the product is currently active and visible in the catalog."
+        },
+        "seoTitle": {
+          "type": "string",
+          "description": "The SEO title tag for the product's page."
+        },
+        "seoDescription": {
+          "type": "string",
+          "description": "The SEO meta description for the product's page."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "slug",
+        "price",
+        "stock",
+        "category",
+        "createdAt",
+        "createdBy",
+        "isActive"
+      ]
+    },
+    "BlogPost": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "BlogPost",
+      "type": "object",
+      "description": "Represents an article or post published in the pharmacy's blog section.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the BlogPost entity."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the blog post."
+        },
+        "slug": {
+          "type": "string",
+          "description": "A URL-friendly identifier for the blog post."
+        },
+        "description": {
+          "type": "string",
+          "description": "A short summary or snippet of the blog post content."
+        },
+        "content": {
+          "type": "string",
+          "description": "The full HTML or rich text content of the blog post."
+        },
+        "authorId": {
+          "type": "string",
+          "description": "Reference to the User who authored the blog post. (Relationship: User 1:N BlogPost)"
+        },
+        "authorName": {
+          "type": "string",
+          "description": "The display name of the author."
+        },
+        "publishDate": {
+          "type": "string",
+          "description": "The date and time when the blog post was published.",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string",
+          "description": "The current publication status of the blog post. (Enum: \"draft\", \"published\")"
+        },
+        "coverImage": {
+          "type": "string",
+          "description": "URL of the cover image for the blog post.",
+          "format": "uri"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when the blog post was initially created.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "slug",
+        "content",
+        "authorId",
+        "authorName",
+        "status",
+        "createdAt"
+      ]
+    },
+    "AnnuaireEntry": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "AnnuaireEntry",
+      "type": "object",
+      "description": "Represents an entry in the pharmacy's directory (annuaire) for suppliers, partners, or clients.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the AnnuaireEntry entity."
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of entity listed in the directory. (Enum: \"fournisseur\", \"partenaire\", \"client\")"
+        },
+        "nom": {
+          "type": "string",
+          "description": "The name of the supplier, partner, or client."
+        },
+        "description": {
+          "type": "string",
+          "description": "A brief description or notes about the entry."
+        },
+        "telephone": {
+          "type": "string",
+          "description": "The contact phone number for this entry."
+        },
+        "email": {
+          "type": "string",
+          "description": "The contact email address for this entry.",
+          "format": "email"
+        },
+        "adresse": {
+          "type": "string",
+          "description": "The physical address associated with this entry."
+        },
+        "createdBy": {
+          "type": "string",
+          "description": "Reference to the Admin User who created this annuaire entry. (Relationship: User 1:N AnnuaireEntry)"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when the annuaire entry was created.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "nom",
+        "createdBy",
+        "createdAt"
+      ]
+    },
+    "Conversation": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Conversation",
+      "type": "object",
+      "description": "Represents a real-time chat conversation between two or more participants.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Conversation entity."
+        },
+        "participants": {
+          "type": "array",
+          "description": "An array of User IDs who are participants in this conversation. (Relationship: User N:N Conversation)",
+          "items": {
+            "type": "string"
+          }
+        },
+        "lastMessage": {
+          "type": "string",
+          "description": "The content of the last message sent in this conversation."
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Timestamp of the most recent activity or message within the conversation.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "participants",
+        "updatedAt"
+      ]
+    },
+    "Message": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Message",
+      "type": "object",
+      "description": "Represents a single message sent within a specific conversation.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Message entity within a conversation."
+        },
+        "conversationId": {
+          "type": "string",
+          "description": "Reference to the Conversation this message belongs to. (Relationship: Conversation 1:N Message)"
+        },
+        "senderId": {
+          "type": "string",
+          "description": "Reference to the User who sent this message. (Relationship: User 1:N Message)"
+        },
+        "message": {
+          "type": "string",
+          "description": "The textual content of the message."
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when the message was sent.",
+          "format": "date-time"
+        },
+        "read": {
+          "type": "boolean",
+          "description": "Indicates if the message has been read by its intended recipients."
+        }
+      },
+      "required": [
+        "id",
+        "conversationId",
+        "senderId",
+        "message",
+        "createdAt"
+      ]
+    },
+    "Appointment": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Appointment",
+      "type": "object",
+      "description": "Represents a scheduled video consultation appointment between a client and a staff member.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Appointment entity."
+        },
+        "clientId": {
+          "type": "string",
+          "description": "Reference to the Client User who requested the appointment. (Relationship: User 1:N Appointment)"
+        },
+        "assignedTo": {
+          "type": "string",
+          "description": "Reference to the Admin or Collaborator User assigned to conduct the appointment. (Relationship: User 1:N Appointment)"
+        },
+        "date": {
+          "type": "string",
+          "description": "The date and time scheduled for the appointment.",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string",
+          "description": "The current status of the appointment. (Enum: \"pending\", \"confirmed\", \"done\", \"cancelled\")"
+        },
+        "meetLink": {
+          "type": "string",
+          "description": "The URL for joining the video meeting.",
+          "format": "uri"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when the appointment was created.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "clientId",
+        "assignedTo",
+        "date",
+        "status",
+        "meetLink",
+        "createdAt"
+      ]
+    },
+    "StockMovement": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "StockMovement",
+      "type": "object",
+      "description": "Records individual movements of stock for a product, representing either an entry (restock) or an exit (sale/loss).",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the StockMovement entity."
+        },
+        "productId": {
+          "type": "string",
+          "description": "Reference to the Product whose stock quantity is being moved. (Relationship: Product 1:N StockMovement)"
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of stock movement. (Enum: \"entry\", \"exit\")"
+        },
+        "quantity": {
+          "type": "number",
+          "description": "The quantity of the product involved in this movement."
+        },
+        "performedBy": {
+          "type": "string",
+          "description": "Reference to the User (Admin or Collaborator) who performed this stock movement. (Relationship: User 1:N StockMovement)"
+        },
+        "date": {
+          "type": "string",
+          "description": "Timestamp when the stock movement occurred.",
+          "format": "date-time"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional notes or details regarding the stock movement (e.g., supplier name, order ID)."
+        }
+      },
+      "required": [
+        "id",
+        "productId",
+        "type",
+        "quantity",
+        "performedBy",
+        "date"
+      ]
+    },
+    "LogEntry": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "LogEntry",
+      "type": "object",
+      "description": "Records administrative actions and important system events for audit and monitoring purposes.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the LogEntry entity."
+        },
+        "eventType": {
+          "type": "string",
+          "description": "The type of event or action being logged (e.g., \"product_created\", \"user_login\", \"stock_alert\")."
+        },
+        "eventDescription": {
+          "type": "string",
+          "description": "A detailed, human-readable description of the logged event."
+        },
+        "actorId": {
+          "type": "string",
+          "description": "Reference to the User who performed the action, if applicable. (Relationship: User 1:N LogEntry)"
+        },
+        "targetId": {
+          "type": "string",
+          "description": "Reference to the entity (e.g., Product, User, Conversation) that was the target of the action, if applicable."
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "Timestamp when the event occurred.",
+          "format": "date-time"
+        },
+        "ipAddress": {
+          "type": "string",
+          "description": "The IP address from which the action originated, if available."
+        }
+      },
+      "required": [
+        "id",
+        "eventType",
+        "eventDescription",
+        "timestamp"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "User",
+          "schema": {
+            "$ref": "#/backend/entities/User"
+          },
+          "description": "Stores individual user profiles. The 'role' field in this document is the primary source of truth for a user's role. Accessible only by the owning user for read/write (request.auth.uid == userId).",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique ID of the user, corresponding to Firebase Authentication UID."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/admin_roles/{userId}",
+        "definition": {
+          "entityName": "User",
+          "schema": {
+            "$ref": "#/backend/entities/User"
+          },
+          "description": "An empty document exists here for each user with the 'admin' role. Used for efficient authorization checks in security rules via 'exists()' without needing a 'get()' on the user's profile. Writeable only by Cloud Functions (service account) or another Admin.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique ID of the user who holds the 'admin' role."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/collaborator_roles/{userId}",
+        "definition": {
+          "entityName": "User",
+          "schema": {
+            "$ref": "#/backend/entities/User"
+          },
+          "description": "An empty document exists here for each user with the 'collaborateur' role. Used for efficient authorization checks in security rules via 'exists()' without needing a 'get()' on the user's profile. Writeable only by Cloud Functions (service account) or an Admin.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique ID of the user who holds the 'collaborateur' role."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/products/{productId}",
+        "definition": {
+          "entityName": "Product",
+          "schema": {
+            "$ref": "#/backend/entities/Product"
+          },
+          "description": "Contains product catalog items. Publicly readable if 'isActive' is true. Write access is restricted to users with 'admin' or 'collaborateur' roles (checked via _roles collections). Includes 'createdBy' for audit.",
+          "params": [
+            {
+              "name": "productId",
+              "description": "The unique ID of the product."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/blog_posts_published/{blogPostId}",
+        "definition": {
+          "entityName": "BlogPost",
+          "schema": {
+            "$ref": "#/backend/entities/BlogPost"
+          },
+          "description": "Stores published blog posts, publicly readable by all users (authenticated or not). No 'status' field is needed here due to structural segregation. Includes denormalized 'authorId' and 'authorName' for display and simple rule validation. Write access (for publishing/editing) is restricted to 'admin' roles.",
+          "params": [
+            {
+              "name": "blogPostId",
+              "description": "The unique ID of the blog post."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{authorId}/blog_posts_drafts/{blogPostId}",
+        "definition": {
+          "entityName": "BlogPost",
+          "schema": {
+            "$ref": "#/backend/entities/BlogPost"
+          },
+          "description": "Stores draft blog posts, private to the author and accessible by 'admin' roles. Path-based ownership (`authorId`) ensures only the author can access their own drafts. The 'status' field will always be 'draft'. Includes denormalized 'authorId' (from path) and 'authorName'.",
+          "params": [
+            {
+              "name": "authorId",
+              "description": "The unique ID of the user who authored the draft blog post."
+            },
+            {
+              "name": "blogPostId",
+              "description": "The unique ID of the draft blog post."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/annuaire_entries/{entryId}",
+        "definition": {
+          "entityName": "AnnuaireEntry",
+          "schema": {
+            "$ref": "#/backend/entities/AnnuaireEntry"
+          },
+          "description": "Stores entries for the pharmacy's directory (suppliers, partners, clients). Readable by 'admin' and 'collaborateur' roles. Write access (creation/update/delete) is restricted to 'admin' roles only. Includes 'createdBy' for audit.",
+          "params": [
+            {
+              "name": "entryId",
+              "description": "The unique ID of the annuaire entry."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/conversations/{conversationId}",
+        "definition": {
+          "entityName": "Conversation",
+          "schema": {
+            "$ref": "#/backend/entities/Conversation"
+          },
+          "description": "Stores metadata for chat conversations. Includes the 'participants' array for direct authorization checks, enabling Authorization Independence. Readable/writable by any user listed in 'participants'.",
+          "params": [
+            {
+              "name": "conversationId",
+              "description": "The unique ID of the conversation."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/conversations/{conversationId}/messages/{messageId}",
+        "definition": {
+          "entityName": "Message",
+          "schema": {
+            "$ref": "#/backend/entities/Message"
+          },
+          "description": "Stores individual messages within a conversation. The 'participants' array from the parent conversation is denormalized into each message document for Authorization Independence. Readable/writable by any user listed in 'participants'.",
+          "params": [
+            {
+              "name": "conversationId",
+              "description": "The unique ID of the parent conversation."
+            },
+            {
+              "name": "messageId",
+              "description": "The unique ID of the message within the conversation."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/appointments/{appointmentId}",
+        "definition": {
+          "entityName": "Appointment",
+          "schema": {
+            "$ref": "#/backend/entities/Appointment"
+          },
+          "description": "Stores scheduled video consultation appointments. 'clientId' and 'assignedTo' fields serve as direct authorization contexts, ensuring Authorization Independence. Readable/writable by 'clientId', 'assignedTo', or 'admin' roles.",
+          "params": [
+            {
+              "name": "appointmentId",
+              "description": "The unique ID of the appointment."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/stock_movements/{movementId}",
+        "definition": {
+          "entityName": "StockMovement",
+          "schema": {
+            "$ref": "#/backend/entities/StockMovement"
+          },
+          "description": "Records individual stock movements for audit and inventory tracking. Readable/writable by 'admin' and 'collaborateur' roles. Includes 'performedBy' for accountability.",
+          "params": [
+            {
+              "name": "movementId",
+              "description": "The unique ID of the stock movement."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/logs/{logId}",
+        "definition": {
+          "entityName": "LogEntry",
+          "schema": {
+            "$ref": "#/backend/entities/LogEntry"
+          },
+          "description": "Records administrative actions and critical system events. Primarily written by secure Cloud Functions. Readable only by 'admin' roles for audit and monitoring.",
+          "params": [
+            {
+              "name": "logId",
+              "description": "The unique ID of the log entry."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure is designed following the core principles of Authorization Independence, Structural Segregation, and DBAC, prioritizing secure, scalable, and debuggable security rules. \n\n**Authorization Independence and QAPs:**\n\n1.  **Global Roles (`admin_roles`, `collaborator_roles`):** Instead of relying on a `get()` call to a user's profile document to determine their role for every access check on other collections, we introduce dedicated collections (`/admin_roles/{userId}` and `/collaborator_roles/{userId}`). An empty document in these collections acts as an existence marker. This allows security rules to check for a user's global role using `exists(/databases/$(database)/documents/admin_roles/$(request.auth.uid))` which is highly efficient and authorization-independent, avoiding hierarchical `get()` calls for global permissions. This directly supports QAPs as `list` operations can be securely filtered by checking the caller's role via these existence checks.\n2.  **Conversations and Messages:** For real-time chat, the `participants` array is crucial for authorization. To achieve Authorization Independence for `Message` documents, the `participants` array from the parent `Conversation` is denormalized into each individual `Message` document. This means a rule on a `message` can evaluate access solely based on `resource.data.participants.includes(request.auth.uid)`, without needing a `get()` call on the parent `conversation` document. This allows atomic write operations and simplifies debugging. Listing conversations and messages (QAP) is secure as users can only query where they are a participant.\n3.  **Appointments:** `Appointment` documents inherently contain `clientId` and `assignedTo`. These fields directly serve as the authorization context. Rules can check `request.auth.uid == resource.data.clientId` or `request.auth.uid == resource.data.assignedTo` for full independence. Listing appointments (QAP) is supported by simple queries like `where('clientId', '==', request.auth.uid)` or `where('assignedTo', '==', request.auth.uid)`.\n4.  **Blog Posts (Structural Segregation):** To avoid complex rules based on a `status` field, blog posts are structurally segregated into two collections: `/blog_posts_published` (publicly readable, no `status` field needed) and `/users/{authorId}/blog_posts_drafts` (private to the author and admins). This simplifies rules dramatically: if it's in `_published`, it's public; if it's in `_drafts`, it's private. This adheres strictly to the \"Structural Segregation\" mandate and enables straightforward QAPs by simply querying the appropriate collection.\n5.  **User-Owned Data (`/users/{userId}/blog_posts_drafts`):** For data directly owned by a user, such as their blog drafts, a path-based ownership (`/users/{userId}/...`) is used. This makes authorization rules simple, `request.auth.uid == userId` for the path parameter, naturally supporting QAPs for listing personal drafts.\n\n**DBAC and Clarity of Intent:**\n\n*   User roles (`admin`, `collaborateur`, `client`) are primarily stored in the `/users/{userId}` document. While custom claims might be used for client-side convenience as per the user's request, Firestore rules will rely on the database for authorization via the existence marker collections. This ensures the database remains the single source of truth for roles.\n*   Naming conventions (e.g., `productId`, `conversationId`, `clientId`, `authorId`, `performedBy`, `createdBy`) are consistent and explicit, making the intent of authorization clear within each document. Wildcards like `{userId}` and `{blogPostId}` are descriptive.\n\nThis architecture provides a robust, maintainable, and highly secure foundation for the Ivry Pharma Digital platform, leveraging Firestore's strengths while adhering to critical security and scalability principles."
+  }
+}
+    

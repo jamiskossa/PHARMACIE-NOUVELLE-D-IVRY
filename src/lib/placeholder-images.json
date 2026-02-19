@@ -1,0 +1,64 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "Abstract gradient background with green and yellow tones",
+      "imageUrl": "https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhYnN0cmFjdCUyMGdyYWRpZW50fGVufDB8fHx8MTc3MDkxMDM5OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract gradient"
+    },
+    {
+      "id": "product-parapharmacy",
+      "description": "A parapharmacy product like a skin cream",
+      "imageUrl": "https://images.unsplash.com/photo-1597931752949-98c74b5b159f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxza2luY2FyZSUyMGJvdHRsZXxlbnwwfHx8fDE3NzA5NzYzNDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "skincare bottle"
+    },
+    {
+      "id": "product-supplement",
+      "description": "A bottle of vitamin supplements",
+      "imageUrl": "https://images.unsplash.com/photo-1687200267036-518c7b676e17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx2aXRhbWluJTIwYm90dGxlfGVufDB8fHx8MTc3MDg3Mjg4NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "vitamin bottle"
+    },
+    {
+      "id": "product-medical-equipment",
+      "description": "A piece of medical equipment like a thermometer",
+      "imageUrl": "https://images.unsplash.com/photo-1594790628624-9e563bea851d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0aGVybW9tZXRlcnxlbnwwfHx8fDE3NzA5ODI0MDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "thermometer"
+    },
+    {
+      "id": "blog-cover-1",
+      "description": "A healthy lifestyle image for a blog post",
+      "imageUrl": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxoZWFsdGh5JTIwZm9vZHxlbnwwfHx8fDE3NzA4ODMzNzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "healthy food"
+    },
+    {
+      "id": "blog-cover-2",
+      "description": "An image about exercise and well-being",
+      "imageUrl": "https://images.unsplash.com/photo-1646942053186-fd84ffb205b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx5b2dhJTIwc3Vuc2V0fGVufDB8fHx8MTc3MDk1NDI5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "yoga sunset"
+    },
+    {
+      "id": "avatar-admin",
+      "description": "Avatar for an admin user",
+      "imageUrl": "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "avatar-collab",
+      "description": "Avatar for a collaborator user",
+      "imageUrl": "https://images.unsplash.com/photo-1705666629331-d780f172f47b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmcmllbmRseSUyMHBlcnNvbnxlbnwwfHx8fDE3NzA4Nzc5ODN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "friendly person"
+    },
+    {
+      "id": "avatar-client",
+      "description": "Avatar for a client user",
+      "imageUrl": "https://images.unsplash.com/photo-1592621385612-4d7129426394?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx3b21hbiUyMHNtaWxpbmd8ZW58MHx8fHwxNzcwOTUxMzU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman smiling"
+    },
+    {
+      "id": "partner-logo-1",
+      "description": "Logo of a partner company",
+      "imageUrl": "https://images.unsplash.com/photo-1622465911368-72162f8da3e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA5MDg4NTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "company logo"
+    }
+  ]
+}

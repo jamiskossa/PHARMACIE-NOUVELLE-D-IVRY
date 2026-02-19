@@ -1,0 +1,117 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // --------------------------------
+    // Helper Functions
+    // --------------------------------
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return exists(/databases/$(database)/documents/admin_roles/$(request.auth.uid));
+    }
+
+    function isCollaborator() {
+      return exists(/databases/$(database)/documents/collaborator_roles/$(request.auth.uid));
+    }
+
+    function isStaff() {
+      return isAdmin() || isCollaborator();
+    }
+
+    function isParticipant(participantsList) {
+      return isSignedIn() && request.auth.uid in participantsList;
+    }
+    
+    // --------------------------------
+    // Collection Rules
+    // --------------------------------
+
+    match /users/{userId} {
+      allow get: if isOwner(userId) || isStaff();
+      allow list: if isStaff();
+      allow create: if request.auth.uid == userId;
+      allow update: if isOwner(userId) || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    match /admin_roles/{userId} {
+      allow get, list, create, delete: if isAdmin();
+      allow update: if false;
+    }
+
+    match /collaborator_roles/{userId} {
+      allow get, list, create, delete: if isAdmin();
+      allow update: if false;
+    }
+
+    match /products/{productId} {
+      allow read: if true;
+      allow create, update, delete: if isStaff();
+    }
+
+    match /blog_posts_published/{blogPostId} {
+      allow read: if true;
+      allow create, update, delete: if isStaff();
+    }
+
+    match /users/{authorId}/blog_posts_drafts/{blogPostId} {
+      allow get, list: if isOwner(authorId) || isAdmin();
+      allow create: if isOwner(authorId);
+      allow update: if (isOwner(authorId) || isAdmin()) && resource != null;
+      allow delete: if (isOwner(authorId) || isAdmin()) && resource != null;
+    }
+
+    match /annuaire_entries/{entryId} {
+      allow read: if isStaff();
+      allow create, update, delete: if isAdmin();
+    }
+
+    match /conversations/{conversationId} {
+      allow get: if isParticipant(resource.data.participants);
+      allow list: if isSignedIn();
+      allow create: if isParticipant(request.resource.data.participants);
+      allow update, delete: if isParticipant(resource.data.participants);
+    }
+
+    match /conversations/{conversationId}/messages/{messageId} {
+      allow get, list: if isParticipant(get(/databases/$(database)/documents/conversations/$(conversationId)).data.participants);
+      allow create: if isParticipant(get(/databases/$(database)/documents/conversations/$(conversationId)).data.participants) && request.resource.data.senderId == request.auth.uid;
+      allow update: if isParticipant(get(/databases/$(database)/documents/conversations/$(conversationId)).data.participants) && request.resource.data.senderId == resource.data.senderId;
+      allow delete: if false;
+    }
+
+    match /appointments/{appointmentId} {
+      function isAppointmentMember() {
+        return request.auth.uid == resource.data.clientId || request.auth.uid == resource.data.assignedTo;
+      }
+      
+      allow get: if isAppointmentMember() || isStaff();
+      allow list: if isSignedIn();
+      allow create: if request.auth.uid == request.resource.data.clientId || isAdmin();
+      allow update, delete: if isAppointmentMember() || isAdmin();
+    }
+
+    match /stock_movements/{movementId} {
+      allow get, list, create: if isStaff();
+      allow update, delete: if isAdmin();
+    }
+    
+    match /contact_submissions/{submissionId} {
+      allow create: if true;
+      allow get, list: if isStaff();
+      allow update, delete: if isAdmin();
+    }
+
+    match /logs/{logId} {
+      allow read, write: if isAdmin();
+    }
+  }
+}
