@@ -117,7 +117,7 @@ export default function ProduitsPage() {
                   </div>
                 </div>
                 <div className="flex-1 relative w-full max-w-2xl lg:max-w-none animate-in fade-in zoom-in duration-1000 delay-200">
-                  <div className="relative aspect-video sm:aspect-[4/3] overflow-hidden rounded-3xl lg:rounded-[3rem] shadow-2xl shadow-slate-200 ring-8 ring-slate-50">
+                  <div className="relative aspect-video sm:aspect-[4/3] overflow-hidden rounded-2xl border border-slate-100 shadow-lg">
                     <Image
                       src="https://picsum.photos/seed/pharmacy-products/800/600"
                       alt="Produits de Pharmacie"
@@ -127,7 +127,6 @@ export default function ProduitsPage() {
                       priority
                     />
                   </div>
-                  <div className="absolute -top-12 -right-12 -z-10 h-64 w-64 rounded-full bg-primary/5 blur-3xl" />
                 </div>
               </div>
             </div>

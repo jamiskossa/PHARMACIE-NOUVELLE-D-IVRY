@@ -93,7 +93,7 @@ export default function Home() {
 
                     {/* Image Right - Modern Frame */}
                     <div className="flex-1 relative w-full max-w-2xl lg:max-w-none animate-in fade-in zoom-in duration-1000 delay-200">
-                        <div className="relative aspect-square sm:aspect-[4/3] lg:aspect-[4/3.5] overflow-hidden rounded-3xl lg:rounded-[3rem] shadow-2xl shadow-slate-200 ring-8 ring-slate-50">
+                        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-slate-100 shadow-lg">
                             <Image
                                 src="/images/hero.png"
                                 alt="Pharmacie Nouvelle d'Ivry"
@@ -102,23 +102,6 @@ export default function Home() {
                                 sizes="(max-width: 768px) 100vw, 50vw"
                                 priority
                             />
-                        </div>
-                        
-                        {/* Simple Abstract Decoration */}
-                        <div className="absolute -top-12 -right-12 -z-10 h-64 w-64 rounded-full bg-primary/5 blur-3xl" />
-                        <div className="absolute -bottom-12 -left-12 -z-10 h-64 w-64 rounded-full bg-blue-500/5 blur-3xl" />
-                        
-                        {/* Floating Info Card */}
-                        <div className="absolute bottom-6 right-6 sm:bottom-10 sm:right-10 bg-white/90 backdrop-blur-md p-4 sm:p-6 rounded-2xl shadow-xl border border-slate-100 hidden sm:block animate-in fade-in slide-in-from-right-8 duration-1000 delay-500">
-                            <div className="flex items-center gap-4">
-                                <div className="h-12 w-12 rounded-full bg-primary flex items-center justify-center text-white">
-                                    <Stethoscope className="h-6 w-6" />
-                                </div>
-                                <div>
-                                    <p className="text-sm font-bold text-slate-900 leading-none">Équipe de Garde</p>
-                                    <p className="text-xs text-slate-500 mt-1">Disponible 6j/7</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
