@@ -403,7 +403,7 @@ export function Header() {
         </div>
 
         {/* Main Navigation (Desktop) */}
-        <nav className="hidden lg:block border-t bg-white">
+        <nav className="hidden lg:block border-t bg-white relative z-[55]">
           <div className="container mx-auto px-4">
             <ul className="flex justify-start xl:justify-center items-center h-14 space-x-3 xl:space-x-4 overflow-x-auto no-scrollbar whitespace-nowrap">
               {navLinks.map((link) => (
@@ -416,7 +416,7 @@ export function Header() {
                     {link.subLinks && <ChevronDown className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />}
                   </Link>
                   {link.subLinks && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[60]">
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[100]">
                        <div className="bg-background shadow-2xl rounded-2xl border p-10 w-[95vw] max-w-7xl grid grid-cols-5 gap-10 max-h-[75vh] overflow-y-auto custom-scrollbar ring-1 ring-black/5 animate-in fade-in slide-in-from-top-2 duration-300">
                         {link.subLinks.map((subLink) => (
                           <div key={subLink.name} className="space-y-4">
