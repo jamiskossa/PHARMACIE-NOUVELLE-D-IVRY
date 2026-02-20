@@ -34,125 +34,194 @@ const navLinks = [
     name: 'BEAUTÉ',
     href: '#',
     subLinks: [
-      { name: 'Visage', href: '#' },
-      { name: 'Nettoyants et Démaquillants', href: '#' },
-      { name: 'Gommages', href: '#' },
-      { name: 'Masques', href: '#' },
-      { name: 'Eaux Thermales', href: '#' },
-      { name: 'Soins Hydratants', href: '#' },
-      { name: 'Soins Matifiants', href: '#' },
-      { name: 'Teint et éclat', href: '#' },
-      { name: 'Acné et Imperfections', href: '#' },
-      { name: 'Soins Anti-rougeurs', href: '#' },
-      { name: 'Soins Anti-taches', href: '#' },
-      { name: 'Soins Anti-âge', href: '#' },
-      { name: 'Soins des yeux, cils et sourcils', href: '#' },
-      { name: 'Soins des lèvres', href: '#' },
-      { name: 'Cosmétiques éthniques', href: '#' },
-      { name: 'Compléments alimentaires', href: '#' },
-      { name: 'Soins réparateurs', href: '#' },
-      { name: 'Soins Visage Premium', href: '#' },
+      { 
+        name: 'Visage', 
+        href: '#', 
+        products: [
+          'Nettoyants et Démaquillants', 'Gommages', 'Masques', 'Eaux Thermales', 'Soins Hydratants',
+          'Soins Matifiants', 'Teint et éclat', 'Acné et Imperfections', 'Soins Anti-rougeurs',
+          'Soins Anti-taches', 'Soins Anti-âge', 'Soins des yeux, cils et sourcils', 'Soins des lèvres',
+          'Cosmétiques éthniques', 'Compléments alimentaires', 'Soins réparateurs', 'Soins Visage Premium'
+        ]
+      },
+      { 
+        name: 'Maquillage', 
+        href: '#', 
+        products: [
+          'Base teint', 'Crème teintée', 'Correcteurs', 'Anti-cernes', 'Fond de teint', 'Poudre',
+          'Maquillage yeux', 'Maquillage lèvres', 'Maquillage ongles', 'Accessoire maquillage', 'Maquillage Premium'
+        ]
+      },
+      { 
+        name: 'Corps', 
+        href: '#', 
+        products: [
+          'Soins gommants et exfoliants', 'Epilation - décoloration', 'Soins hydratants', 'Soins anti-age',
+          'Soins mains et ongles', 'Soins des pieds', 'Soins apaisants', 'Massage détente', 'Soins buste',
+          'Vergetures', 'Cosmétiques éthniques', 'Parfums et eaux', 'Soins Corps Premium'
+        ]
+      },
+      { 
+        name: 'Cheveux', 
+        href: '#', 
+        products: [
+          'Shampooing', 'Après-shampooing', 'Shampooing sec', 'Masque cheveux', 'Soins avec rinçage',
+          'Soins sans rinçage', 'Chute de cheveux', 'Coloration', 'Lissage cheveux', 'Soins protecteurs',
+          'Produits coiffants', 'Accessoires cheveux', 'Anti-poux', 'Enfant', 'Soins Capillaires Premium'
+        ]
+      },
+      { 
+        name: 'Bio et nature', 
+        href: '#', 
+        products: [
+          'Nettoyants et Démaquillants bio', 'Gommages bio', 'Masques bio', 'Soins Hydratants bio',
+          'Teint-Eclat bio', 'Soins Anti-age bio', 'Soins des yeux bio', 'Soins des lèvres bio',
+          'Shampooing bio', 'Soins corps bio', 'Solaires bio'
+        ]
+      },
+      { 
+        name: 'Solaire', 
+        href: '#', 
+        products: [
+          'Préparation au soleil', 'Protections solaires', 'Après-soleil', 'Coups de soleil',
+          'Protection enfant', 'Zones sensibles', 'Protections solaires cheveux', 'Autobronzants',
+          'Accessoires solaire', 'Soins Solaires Premium'
+        ]
+      },
     ],
   },
   {
-    name: 'MAQUILLAGE',
+    name: 'MAMAN & BÉBÉ',
     href: '#',
     subLinks: [
-      { name: 'Base teint', href: '#' },
-      { name: 'Crème teintée', href: '#' },
-      { name: 'Correcteurs', href: '#' },
-      { name: 'Anti-cernes', href: '#' },
-      { name: 'Fond de teint', href: '#' },
-      { name: 'Poudre', href: '#' },
-      { name: 'Maquillage yeux', href: '#' },
-      { name: 'Maquillage lèvres', href: '#' },
-      { name: 'Maquillage ongles', href: '#' },
-      { name: 'Accessoire maquillage', href: '#' },
-      { name: 'Maquillage Premium', href: '#' },
-    ],
+      { 
+        name: 'Grossesse & Maternité', 
+        href: '#', 
+        products: ['Vergetures', 'Allaitement', 'Vitamines grossesse', 'Accessoires maternité'] 
+      },
+      { 
+        name: 'Bébé - Soins & Hygiène', 
+        href: '#', 
+        products: ['Nettoyants', 'Change', 'Hydratation bébé', 'Solaire enfant', 'Croûtes de lait'] 
+      },
+      { 
+        name: 'Bébé - Nutrition', 
+        href: '#', 
+        products: ['Lait 1er âge', 'Lait 2ème âge', 'Lait de croissance', 'Petits pots & Diversification'] 
+      },
+      { 
+        name: 'Bébé - Accessoires', 
+        href: '#', 
+        products: ['Biberons', 'Tétines & Sucettes', 'Anneaux de dentition', 'Thermomètres'] 
+      },
+    ]
   },
   {
-    name: 'CORPS',
+    name: 'SANTÉ & NUTRITION',
     href: '#',
     subLinks: [
-      { name: 'Soins gommants et exfoliants', href: '#' },
-      { name: 'Epilation - décoloration', href: '#' },
-      { name: 'Soins hydratants', href: '#' },
-      { name: 'Soins anti-age', href: '#' },
-      { name: 'Soins mains et ongles', href: '#' },
-      { name: 'Soins des pieds', href: '#' },
-      { name: 'Soins apaisants', href: '#' },
-      { name: 'Massage détente', href: '#' },
-      { name: 'Soins buste', href: '#' },
-      { name: 'Vergetures', href: '#' },
-      { name: 'Cosmétiques éthniques', href: '#' },
-      { name: 'Parfums et eaux', href: '#' },
-      { name: 'Soins Corps Premium', href: '#' },
-    ],
+      { 
+        name: 'Médicaments', 
+        href: '#', 
+        products: ['Douleurs & Fièvre', 'Rhume & État grippal', 'Digestion', 'Allergies', 'Maux de gorge'] 
+      },
+      { 
+        name: 'Compléments alimentaires', 
+        href: '#', 
+        products: ['Vitamines & Minéraux', 'Sommeil', 'Stress & Anxiété', 'Immunité', 'Articulations'] 
+      },
+      { 
+        name: 'Premiers Secours', 
+        href: '#', 
+        products: ['Pansements', 'Désinfectants', 'Compresses', 'Seringues & Aiguilles'] 
+      },
+    ]
   },
   {
-    name: 'CHEVEUX',
+    name: 'HYGIÈNE & BIEN-ÊTRE',
     href: '#',
     subLinks: [
-      { name: 'Shampooing', href: '#' },
-      { name: 'Après-shampooing', href: '#' },
-      { name: 'Shampooing sec', href: '#' },
-      { name: 'Masque cheveux', href: '#' },
-      { name: 'Soins avec rinçage', href: '#' },
-      { name: 'Soins sans rinçage', href: '#' },
-      { name: 'Chute de cheveux', href: '#' },
-      { name: 'Coloration', href: '#' },
-      { name: 'Lissage cheveux', href: '#' },
-      { name: 'Soins protecteurs', href: '#' },
-      { name: 'Produits coiffants', href: '#' },
-      { name: 'Accessoires cheveux', href: '#' },
-      { name: 'Anti-poux', href: '#' },
-      { name: 'Enfant', href: '#' },
-      { name: 'Soins Capillaires Premium', href: '#' },
-    ],
+      { 
+        name: 'Hygiène dentaire', 
+        href: '#', 
+        products: ['Brosses à dents', 'Dentifrices', 'Bains de bouche', 'Blanchiment', 'Interdentaire'] 
+      },
+      { 
+        name: 'Hygiène corporelle', 
+        href: '#', 
+        products: ['Gels douche', 'Savons', 'Déodorants', 'Hygiène intime', 'Epilation'] 
+      },
+      { 
+        name: 'Bien-être', 
+        href: '#', 
+        products: ['Huiles essentielles', 'Diffuseurs', 'Fleurs de Bach', 'Massages'] 
+      },
+    ]
   },
   {
-    name: 'BIO ET NATURE',
+    name: 'MINCEUR & SPORT',
     href: '#',
     subLinks: [
-      { name: 'Nettoyants et Démaquillants bio', href: '#' },
-      { name: 'Gommages bio et nature', href: '#' },
-      { name: 'Masques bio et nature', href: '#' },
-      { name: 'Soins Hydratants bio', href: '#' },
-      { name: 'Teint-Eclat bio', href: '#' },
-      { name: 'Soins Anti-age bio', href: '#' },
-      { name: 'Soins des yeux bio', href: '#' },
-      { name: 'Soins des lèvres bio', href: '#' },
-      { name: 'Shampooing bio', href: '#' },
-      { name: 'Soins corps bio', href: '#' },
-      { name: 'Solaires bio', href: '#' },
-    ],
+      { 
+        name: 'Minceur', 
+        href: '#', 
+        products: ['Brûleurs de graisse', 'Draineurs', 'Substituts de repas', 'Crèmes minceur'] 
+      },
+      { 
+        name: 'Sport & Nutrition', 
+        href: '#', 
+        products: ['Protéines', 'Énergie', 'Récupération', 'Accessoires de sport'] 
+      },
+    ]
   },
   {
-    name: 'SOLAIRE',
+    name: 'HOMME',
     href: '#',
     subLinks: [
-      { name: 'Préparation au soleil', href: '#' },
-      { name: 'Protections solaires', href: '#' },
-      { name: 'Après-soleil', href: '#' },
-      { name: 'Coups de soleil', href: '#' },
-      { name: 'Protection enfant', href: '#' },
-      { name: 'Zones sensibles', href: '#' },
-      { name: 'Protections solaires cheveux', href: '#' },
-      { name: 'Autobronzants', href: '#' },
-      { name: 'Accessoires solaire', href: '#' },
-      { name: 'Soins Solaires Premium', href: '#' },
-    ],
+      { 
+        name: 'Rasage & Barbe', 
+        href: '#', 
+        products: ['Mousses & Gels', 'Après-rasage', 'Entretien barbe'] 
+      },
+      { 
+        name: 'Soins Homme', 
+        href: '#', 
+        products: ['Visage', 'Corps', 'Cheveux', 'Déodorants homme'] 
+      },
+    ]
   },
-  { name: 'TROUSSES ET COFFRETS', href: '#' },
-  { name: 'BEAUTÉ PREMIUM', href: '#' },
-  { name: 'MAMAN & BÉBÉ', href: '#' },
-  { name: 'SANTÉ & NUTRITION', href: '#' },
-  { name: 'HYGIÈNE & BIEN-ÊTRE', href: '#' },
-  { name: 'MINCEUR & SPORT', href: '#' },
-  { name: 'HOMME', href: '#' },
-  { name: 'VÉTÉRINAIRE', href: '#' },
-  { name: 'K-BEAUTY', href: '#' },
+  {
+    name: 'VÉTÉRINAIRE',
+    href: '#',
+    subLinks: [
+      { 
+        name: 'Chiens', 
+        href: '#', 
+        products: ['Anti-parasitaires', 'Hygiène', 'Alimentation', 'Articulations'] 
+      },
+      { 
+        name: 'Chats', 
+        href: '#', 
+        products: ['Pipettes & Colliers', 'Shampooings', 'Litières', 'Boules de poils'] 
+      },
+    ]
+  },
+  {
+    name: 'K-BEAUTY',
+    href: '#',
+    subLinks: [
+      { 
+        name: 'Nettoyage Coréen', 
+        href: '#', 
+        products: ['Huiles démaquillantes', 'Nettoyants aqueux', 'Exfoliants'] 
+      },
+      { 
+        name: 'Soins & Traitements', 
+        href: '#', 
+        products: ['Essences', 'Sérums', 'Masques tissus', 'Crèmes barrières'] 
+      },
+    ]
+  },
   { name: 'PROMOTIONS', href: '#', highlight: true },
 ];
 
@@ -228,17 +297,42 @@ export function Header() {
                               {link.name}
                             </AccordionTrigger>
                             <AccordionContent>
-                              <div className="flex flex-col space-y-2 pl-4 border-l-2 border-primary/10 ml-1">
-                                {link.subLinks.map((subLink) => (
-                                  <Link
-                                    key={`mobile-sub-${subLink.name}`}
-                                    href={subLink.href}
-                                    className="py-1.5 text-xs text-muted-foreground hover:text-primary transition-colors"
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                  >
-                                    {subLink.name}
-                                  </Link>
-                                ))}
+                              <div className="flex flex-col space-y-1 ml-1">
+                                <Accordion type="single" collapsible className="w-full">
+                                  {link.subLinks.map((subLink) => (
+                                    <AccordionItem key={`mobile-sub-${subLink.name}`} value={subLink.name} className="border-none">
+                                      {subLink.products ? (
+                                        <>
+                                          <AccordionTrigger className="py-2 pl-4 text-xs font-medium text-foreground hover:text-primary hover:no-underline">
+                                            {subLink.name}
+                                          </AccordionTrigger>
+                                          <AccordionContent>
+                                            <div className="flex flex-col space-y-2 pl-8 border-l border-primary/10 ml-1">
+                                              {subLink.products.map((product) => (
+                                                <Link
+                                                  key={`mobile-prod-${product}`}
+                                                  href="#"
+                                                  className="py-1 text-[11px] text-muted-foreground hover:text-primary transition-colors"
+                                                  onClick={() => setIsMobileMenuOpen(false)}
+                                                >
+                                                  {product}
+                                                </Link>
+                                              ))}
+                                            </div>
+                                          </AccordionContent>
+                                        </>
+                                      ) : (
+                                        <Link
+                                          href={subLink.href}
+                                          className="block py-2 pl-4 text-xs font-medium text-foreground hover:text-primary transition-colors"
+                                          onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                          {subLink.name}
+                                        </Link>
+                                      )}
+                                    </AccordionItem>
+                                  ))}
+                                </Accordion>
                               </div>
                             </AccordionContent>
                           </>
@@ -323,18 +417,29 @@ export function Header() {
                   </Link>
                   {link.subLinks && (
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                       <ul className="bg-background shadow-lg rounded-lg border w-64 p-2 max-h-[80vh] overflow-y-auto custom-scrollbar">
+                       <div className="bg-background shadow-xl rounded-xl border p-8 w-[90vw] max-w-6xl grid grid-cols-4 gap-8 max-h-[70vh] overflow-y-auto custom-scrollbar">
                         {link.subLinks.map((subLink) => (
-                          <li key={subLink.name}>
-                            <Link
-                              href={subLink.href}
-                              className="block px-4 py-2 rounded-md text-xs text-muted-foreground hover:bg-secondary hover:text-primary"
-                            >
+                          <div key={subLink.name} className="space-y-3">
+                            <h3 className="font-bold text-sm text-foreground uppercase tracking-tight border-b pb-2 border-primary/10">
                               {subLink.name}
-                            </Link>
-                          </li>
+                            </h3>
+                            {subLink.products ? (
+                              <ul className="space-y-1.5">
+                                {subLink.products.map((product) => (
+                                  <li key={product}>
+                                    <Link
+                                      href="#"
+                                      className="block text-xs text-muted-foreground hover:text-primary transition-colors py-0.5"
+                                    >
+                                      {product}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            ) : null}
+                          </div>
                         ))}
-                      </ul>
+                      </div>
                     </div>
                   )}
                 </li>
