@@ -20,6 +20,14 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import { mockBlogPosts } from '@/lib/mock-data';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
@@ -43,69 +51,53 @@ export default function Home() {
 
   const latestPosts = mockBlogPosts.filter(p => p.status === 'published').slice(0, 3);
 
+  const heroImages = [
+    "https://images.unsplash.com/photo-1587854692152-cbe660dbbb88?q=80&w=2070&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1626285861696-9f0bf5a49c6d?q=80&w=2070&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1512428813833-df4a2e7b0e52?q=80&w=2070&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1583417319070-4a69db38a482?q=80&w=2070&auto=format&fit=crop",
+  ];
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1">
-        {/* Hero Section - Professional & Simple Redesign */}
-        <section className="relative bg-white pt-12 pb-16 lg:pt-20 lg:pb-24 overflow-hidden">
-            <div className="container mx-auto px-4">
-                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-                    {/* Content Left */}
-                    <div className="flex-1 text-center lg:text-left z-10">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 border border-primary/10 text-primary text-sm font-semibold mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                            <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                            </span>
-                            Ouvert et à votre écoute
-                        </div>
-                        <h1 className="font-headline text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.1] animate-in fade-in slide-in-from-left-8 duration-1000">
-                            Votre santé mérite <br className="hidden sm:block" />
-                            <span className="text-primary">le meilleur conseil.</span>
-                        </h1>
-                        <p className="mt-8 text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 animate-in fade-in slide-in-from-left-8 duration-1000 delay-200">
-                            La Pharmacie Nouvelle d'Ivry allie expertise traditionnelle et services modernes pour vous accompagner au quotidien dans votre parcours de soin.
-                        </p>
-                        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-in fade-in slide-in-from-left-8 duration-1000 delay-300">
-                            <Button asChild size="lg" className="w-full sm:w-auto h-14 px-10 rounded-xl bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98]">
-                                <Link href="/produits">
-                                    Nos Produits <ShoppingCart className="ml-2 h-5 w-5" />
-                                </Link>
-                            </Button>
-                            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto h-14 px-10 rounded-xl border-slate-200 hover:bg-slate-50 transition-all">
-                                <Link href="/contact">Contactez-nous</Link>
-                            </Button>
-                        </div>
-                        
-                        {/* Simple Stats/Trust Bars */}
-                        <div className="mt-12 pt-8 border-t border-slate-100 flex flex-wrap justify-center lg:justify-start gap-8 opacity-70">
-                            <div className="flex items-center gap-2">
-                                <ShieldCheck className="h-5 w-5 text-primary" />
-                                <span className="text-sm font-medium text-slate-700">Qualité Certifiée</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <HeartPulse className="h-5 w-5 text-primary" />
-                                <span className="text-sm font-medium text-slate-700">Conseils d'Experts</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Image Right - Modern Frame */}
-                    <div className="flex-1 relative w-full max-w-2xl lg:max-w-none animate-in fade-in zoom-in duration-1000 delay-200">
-                        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-slate-100 shadow-lg">
-                            <Image
-                                src="/images/hero.png"
-                                alt="Pharmacie Nouvelle d'Ivry"
-                                fill
-                                className="object-cover object-center transition-transform duration-700 hover:scale-105"
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                                priority
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
+        {/* Hero Section - Professional Slideshow */}
+        <section className="relative w-full bg-white">
+          <Carousel
+            className="w-full"
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({
+                delay: 3500,
+                stopOnInteraction: false,
+              }),
+            ]}
+          >
+            <CarouselContent className="-ml-0">
+              {heroImages.map((src, index) => (
+                <CarouselItem key={index} className="pl-0">
+                  <div className="relative aspect-video w-full overflow-hidden">
+                    <Image
+                      src={src}
+                      alt={`Promotion ${index + 1}`}
+                      fill
+                      className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                      priority={index === 0}
+                      sizes="100vw"
+                    />
+                    <div className="absolute inset-0 bg-black/5" />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-4 hidden sm:flex" />
+            <CarouselNext className="right-4 hidden sm:flex" />
+          </Carousel>
         </section>
         
         {/* Categories Section */}

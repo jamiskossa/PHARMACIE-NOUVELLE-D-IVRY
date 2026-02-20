@@ -269,7 +269,7 @@ export function Header() {
       </div>
 
       {/* Main Header */}
-      <header className="sticky top-0 z-40 w-full border-b bg-background/95">
+      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
         <div className="container mx-auto px-4 h-20 flex items-center justify-between gap-6">
           {/* Mobile Menu Trigger */}
           <div className="lg:hidden">
@@ -376,12 +376,12 @@ export function Header() {
                 <Heart className="h-6 w-6" />
                 <span className="sr-only">Liste de souhaits</span>
             </Button>
-            <Button variant="ghost" size="icon" className="relative">
+            <Button variant="ghost" size="icon" className="relative flex items-center gap-2 px-2 w-auto min-w-[40px]">
               <ShoppingBag className="h-6 w-6" />
-               <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-accent-foreground text-xs font-bold">
+               <span className="absolute -top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-accent-foreground text-[10px] font-bold">
                 3
               </span>
-              <span className="sr-only">Panier</span>
+              <span className="hidden sm:inline-block text-xs font-semibold">Panier</span>
             </Button>
              <a href="tel:0146723176" className="hidden xl:flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-primary">
                 <Phone className="h-5 w-5" />
@@ -416,20 +416,21 @@ export function Header() {
                     {link.subLinks && <ChevronDown className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />}
                   </Link>
                   {link.subLinks && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                       <div className="bg-background shadow-xl rounded-xl border p-8 w-[90vw] max-w-6xl grid grid-cols-4 gap-8 max-h-[70vh] overflow-y-auto custom-scrollbar">
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[60]">
+                       <div className="bg-background shadow-2xl rounded-2xl border p-10 w-[95vw] max-w-7xl grid grid-cols-5 gap-10 max-h-[75vh] overflow-y-auto custom-scrollbar ring-1 ring-black/5 animate-in fade-in slide-in-from-top-2 duration-300">
                         {link.subLinks.map((subLink) => (
-                          <div key={subLink.name} className="space-y-3">
-                            <h3 className="font-bold text-sm text-foreground uppercase tracking-tight border-b pb-2 border-primary/10">
+                          <div key={subLink.name} className="space-y-4">
+                            <h3 className="font-bold text-[13px] text-primary uppercase tracking-wider border-b pb-3 border-primary/20 flex items-center gap-2">
+                               <div className="h-1 w-1 rounded-full bg-primary" />
                               {subLink.name}
                             </h3>
                             {subLink.products ? (
-                              <ul className="space-y-1.5">
+                              <ul className="space-y-2">
                                 {subLink.products.map((product) => (
                                   <li key={product}>
                                     <Link
                                       href="#"
-                                      className="block text-xs text-muted-foreground hover:text-primary transition-colors py-0.5"
+                                      className="block text-[11px] font-medium text-muted-foreground hover:text-primary hover:translate-x-1 transition-all py-0.5"
                                     >
                                       {product}
                                     </Link>

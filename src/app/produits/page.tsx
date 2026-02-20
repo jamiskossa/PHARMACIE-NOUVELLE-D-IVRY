@@ -103,7 +103,7 @@ export default function ProduitsPage() {
               <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
                 <div className="flex-1 text-center lg:text-left">
                   <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-sm font-medium text-primary mb-6 animate-in fade-in slide-in-from-left-8 duration-700">
-                    <ShoppingCart className="mr-2 h-4 w-4" /> Boutique
+                    <ShoppingCart className="mr-2 h-4 w-4" /> Panier
                   </div>
                   <h1 className="font-headline text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.1] animate-in fade-in slide-in-from-left-8 duration-1000">
                     Prendre soin de vous <br />
