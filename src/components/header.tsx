@@ -18,34 +18,143 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Logo } from '@/components/logo';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from '@/components/ui/sheet';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 import { UserNav } from '@/components/user-nav';
 import { Separator } from './ui/separator';
 import { useAuthContext } from '@/contexts/auth-context';
 import { Skeleton } from './ui/skeleton';
 
 const navLinks = [
-    {
-      name: 'MÉDICAMENTS',
-      href: '#',
-      subLinks: [
-        { name: 'Douleurs & fièvre', href: '#' },
-        { name: 'Rhume, toux, gorge', href: '#' },
-        { name: 'Digestion – Transit', href: '#' },
-        { name: 'Sommeil – Stress', href: '#' },
-        { name: 'Allergies', href: '#' },
-      ],
-    },
-    { name: 'SANTÉ & BIEN-ÊTRE', href: '/produits'},
-    { name: 'BEAUTÉ & HYGIÈNE', href: '/produits'},
-    { name: 'BÉBÉ – ENFANT – MAMAN', href: '/produits'},
-    { name: 'COMPLÉMENTS ALIMENTAIRES', href: '#'},
-    { name: 'MÉDECINES NATURELLES', href: '#'},
-    { name: 'NUTRITION & SPORT', href: '#'},
-    { name: 'ORTHOPÉDIE & CONTENTION', href: '#'},
-    { name: 'MATÉRIEL MÉDICAL', href: '#'},
-    { name: 'VÉTÉRINAIRE', href: '#'},
-    { name: 'PROMOTIONS', href: '#', highlight: true },
-  ];
+  {
+    name: 'BEAUTÉ',
+    href: '#',
+    subLinks: [
+      { name: 'Visage', href: '#' },
+      { name: 'Nettoyants et Démaquillants', href: '#' },
+      { name: 'Gommages', href: '#' },
+      { name: 'Masques', href: '#' },
+      { name: 'Eaux Thermales', href: '#' },
+      { name: 'Soins Hydratants', href: '#' },
+      { name: 'Soins Matifiants', href: '#' },
+      { name: 'Teint et éclat', href: '#' },
+      { name: 'Acné et Imperfections', href: '#' },
+      { name: 'Soins Anti-rougeurs', href: '#' },
+      { name: 'Soins Anti-taches', href: '#' },
+      { name: 'Soins Anti-âge', href: '#' },
+      { name: 'Soins des yeux, cils et sourcils', href: '#' },
+      { name: 'Soins des lèvres', href: '#' },
+      { name: 'Cosmétiques éthniques', href: '#' },
+      { name: 'Compléments alimentaires', href: '#' },
+      { name: 'Soins réparateurs', href: '#' },
+      { name: 'Soins Visage Premium', href: '#' },
+    ],
+  },
+  {
+    name: 'MAQUILLAGE',
+    href: '#',
+    subLinks: [
+      { name: 'Base teint', href: '#' },
+      { name: 'Crème teintée', href: '#' },
+      { name: 'Correcteurs', href: '#' },
+      { name: 'Anti-cernes', href: '#' },
+      { name: 'Fond de teint', href: '#' },
+      { name: 'Poudre', href: '#' },
+      { name: 'Maquillage yeux', href: '#' },
+      { name: 'Maquillage lèvres', href: '#' },
+      { name: 'Maquillage ongles', href: '#' },
+      { name: 'Accessoire maquillage', href: '#' },
+      { name: 'Maquillage Premium', href: '#' },
+    ],
+  },
+  {
+    name: 'CORPS',
+    href: '#',
+    subLinks: [
+      { name: 'Soins gommants et exfoliants', href: '#' },
+      { name: 'Epilation - décoloration', href: '#' },
+      { name: 'Soins hydratants', href: '#' },
+      { name: 'Soins anti-age', href: '#' },
+      { name: 'Soins mains et ongles', href: '#' },
+      { name: 'Soins des pieds', href: '#' },
+      { name: 'Soins apaisants', href: '#' },
+      { name: 'Massage détente', href: '#' },
+      { name: 'Soins buste', href: '#' },
+      { name: 'Vergetures', href: '#' },
+      { name: 'Cosmétiques éthniques', href: '#' },
+      { name: 'Parfums et eaux', href: '#' },
+      { name: 'Soins Corps Premium', href: '#' },
+    ],
+  },
+  {
+    name: 'CHEVEUX',
+    href: '#',
+    subLinks: [
+      { name: 'Shampooing', href: '#' },
+      { name: 'Après-shampooing', href: '#' },
+      { name: 'Shampooing sec', href: '#' },
+      { name: 'Masque cheveux', href: '#' },
+      { name: 'Soins avec rinçage', href: '#' },
+      { name: 'Soins sans rinçage', href: '#' },
+      { name: 'Chute de cheveux', href: '#' },
+      { name: 'Coloration', href: '#' },
+      { name: 'Lissage cheveux', href: '#' },
+      { name: 'Soins protecteurs', href: '#' },
+      { name: 'Produits coiffants', href: '#' },
+      { name: 'Accessoires cheveux', href: '#' },
+      { name: 'Anti-poux', href: '#' },
+      { name: 'Enfant', href: '#' },
+      { name: 'Soins Capillaires Premium', href: '#' },
+    ],
+  },
+  {
+    name: 'BIO ET NATURE',
+    href: '#',
+    subLinks: [
+      { name: 'Nettoyants et Démaquillants bio', href: '#' },
+      { name: 'Gommages bio et nature', href: '#' },
+      { name: 'Masques bio et nature', href: '#' },
+      { name: 'Soins Hydratants bio', href: '#' },
+      { name: 'Teint-Eclat bio', href: '#' },
+      { name: 'Soins Anti-age bio', href: '#' },
+      { name: 'Soins des yeux bio', href: '#' },
+      { name: 'Soins des lèvres bio', href: '#' },
+      { name: 'Shampooing bio', href: '#' },
+      { name: 'Soins corps bio', href: '#' },
+      { name: 'Solaires bio', href: '#' },
+    ],
+  },
+  {
+    name: 'SOLAIRE',
+    href: '#',
+    subLinks: [
+      { name: 'Préparation au soleil', href: '#' },
+      { name: 'Protections solaires', href: '#' },
+      { name: 'Après-soleil', href: '#' },
+      { name: 'Coups de soleil', href: '#' },
+      { name: 'Protection enfant', href: '#' },
+      { name: 'Zones sensibles', href: '#' },
+      { name: 'Protections solaires cheveux', href: '#' },
+      { name: 'Autobronzants', href: '#' },
+      { name: 'Accessoires solaire', href: '#' },
+      { name: 'Soins Solaires Premium', href: '#' },
+    ],
+  },
+  { name: 'TROUSSES ET COFFRETS', href: '#' },
+  { name: 'BEAUTÉ PREMIUM', href: '#' },
+  { name: 'MAMAN & BÉBÉ', href: '#' },
+  { name: 'SANTÉ & NUTRITION', href: '#' },
+  { name: 'HYGIÈNE & BIEN-ÊTRE', href: '#' },
+  { name: 'MINCEUR & SPORT', href: '#' },
+  { name: 'HOMME', href: '#' },
+  { name: 'VÉTÉRINAIRE', href: '#' },
+  { name: 'K-BEAUTY', href: '#' },
+  { name: 'PROMOTIONS', href: '#', highlight: true },
+];
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -109,17 +218,42 @@ export function Header() {
                   <Logo />
                 </div>
                 <Separator/>
-                <nav className="p-6 space-y-2">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={`mobile-${link.name}`}
-                      href={link.href}
-                      className="block text-[10px] font-semibold uppercase tracking-wider text-foreground transition-colors hover:text-primary"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
+                <nav className="p-6 h-[calc(100vh-120px)] overflow-y-auto">
+                  <Accordion type="single" collapsible className="w-full">
+                    {navLinks.map((link) => (
+                      <AccordionItem key={`mobile-${link.name}`} value={link.name} className="border-none">
+                        {link.subLinks ? (
+                          <>
+                            <AccordionTrigger className="py-3 text-[11px] font-semibold uppercase tracking-wider text-foreground hover:text-primary hover:no-underline">
+                              {link.name}
+                            </AccordionTrigger>
+                            <AccordionContent>
+                              <div className="flex flex-col space-y-2 pl-4 border-l-2 border-primary/10 ml-1">
+                                {link.subLinks.map((subLink) => (
+                                  <Link
+                                    key={`mobile-sub-${subLink.name}`}
+                                    href={subLink.href}
+                                    className="py-1.5 text-xs text-muted-foreground hover:text-primary transition-colors"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                  >
+                                    {subLink.name}
+                                  </Link>
+                                ))}
+                              </div>
+                            </AccordionContent>
+                          </>
+                        ) : (
+                          <Link
+                            href={link.href}
+                            className={`block py-3 text-[11px] font-semibold uppercase tracking-wider transition-colors hover:text-primary ${link.highlight ? 'text-accent' : 'text-foreground'}`}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {link.name}
+                          </Link>
+                        )}
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
                 </nav>
               </SheetContent>
             </Sheet>
@@ -175,9 +309,9 @@ export function Header() {
         </div>
 
         {/* Main Navigation (Desktop) */}
-        <nav className="hidden lg:block border-t">
+        <nav className="hidden lg:block border-t bg-white">
           <div className="container mx-auto px-4">
-            <ul className="flex justify-center items-center h-14 space-x-4">
+            <ul className="flex justify-start xl:justify-center items-center h-14 space-x-3 xl:space-x-4 overflow-x-auto no-scrollbar whitespace-nowrap">
               {navLinks.map((link) => (
                 <li key={link.name} className="group relative h-full flex items-center">
                   <Link
@@ -188,8 +322,8 @@ export function Header() {
                     {link.subLinks && <ChevronDown className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />}
                   </Link>
                   {link.subLinks && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                       <ul className="bg-background shadow-lg rounded-lg border w-64 p-2">
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                       <ul className="bg-background shadow-lg rounded-lg border w-64 p-2 max-h-[80vh] overflow-y-auto custom-scrollbar">
                         {link.subLinks.map((subLink) => (
                           <li key={subLink.name}>
                             <Link
