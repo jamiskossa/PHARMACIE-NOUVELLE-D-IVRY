@@ -21,6 +21,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { HeroCarousel } from '@/components/hero-carousel';
+import { BestsellersSection } from '@/components/bestsellers-section';
 import { mockBlogPosts } from '@/lib/mock-data';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
@@ -60,6 +61,9 @@ export default function Home() {
         <section className="relative w-full bg-white">
           <HeroCarousel heroImages={heroImages} />
         </section>
+
+        {/* Bestsellers Section */}
+        <BestsellersSection />
         
         {/* Categories Section */}
         <section className="py-16 sm:py-24">
