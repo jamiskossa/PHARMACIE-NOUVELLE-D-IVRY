@@ -22,6 +22,7 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { HeroCarousel } from '@/components/hero-carousel';
 import { BestsellersSection } from '@/components/bestsellers-section';
+import VisualPresentationSection from '@/components/visual-presentation-section';
 import { mockBlogPosts } from '@/lib/mock-data';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
@@ -64,6 +65,9 @@ export default function Home() {
 
         {/* Bestsellers Section */}
         <BestsellersSection />
+
+        {/* Visual Presentation Section */}
+        <VisualPresentationSection />
         
         {/* Categories Section */}
         <section className="py-16 sm:py-24">
