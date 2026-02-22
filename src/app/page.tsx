@@ -21,6 +21,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { HeroCarousel } from '@/components/hero-carousel';
+import { PromotionsSlideshow } from '@/components/promotions-slideshow';
 import { BestsellersSection } from '@/components/bestsellers-section';
 import VisualPresentationSection from '@/components/visual-presentation-section';
 import { mockBlogPosts } from '@/lib/mock-data';
@@ -58,6 +59,9 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1">
+        {/* Promotions Slideshow Hero */}
+        <PromotionsSlideshow />
+
         {/* Hero Section - Professional Slideshow */}
         <section className="relative w-full bg-white">
           <HeroCarousel heroImages={heroImages} />
